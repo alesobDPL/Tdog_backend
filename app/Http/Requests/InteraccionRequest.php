@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Response;
 
-class PerroRequest extends FormRequest
+class InteraccionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,14 +16,19 @@ class PerroRequest extends FormRequest
     {
         return true;
     }
-    
 
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     */
     public function rules()
     {
         return [
-            "nombre" => "required|string",
-            "url_foto" => "required|max:120|string",
-            "descripcion" => "required|max:300|string",
+
+            "perro_interesado_id" => "required|numeric",
+            "perro_candidato_id" => "required|numeric",
+            "preferencia" => "required|string|max:15",
         ];
     }
 
@@ -47,5 +52,4 @@ class PerroRequest extends FormRequest
         throw new HttpResponseException(response()->json($validator->errors()->all(), Response::HTTP_BAD_REQUEST)
         );
     }
-    
 }
