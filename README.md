@@ -1,66 +1,91 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Nombre estudiante: Manuel torres sobarzo
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Carrera: IECI
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+APIS a utilizar: 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+    -perro: 
+        POST(registra un perro en la base de datos): 
+            http://127.0.0.1:8000/api/perro/registrar
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+            	{
+			"nombre": "Pikachu",
+			"url_foto": "https:\/\/example.com\/Pikachu",
+			"descripcion": "A friendly and playful God pokemon" }
 
-## Learning Laravel
+          	{
+			"nombre": "Torterra",
+			"url_foto": "https:\/\/example.com\/Torterra",
+			"descripcion": "A friendly and playful earth God" }
+   
+        PUT(edita un perro ya ingresado en la base de datos(el id puede ser 1 o 2): 
+            http://127.0.0.1:8000/api/perro/actualizar/{id}
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+                    {
+            "nombre": "Pichule",
+            "url_foto": "https://example.com/Pikachu",
+            "descripcion": "A friendly and playful God pokemon" }
+                    {
+            "nombre": "Pichule2",
+            "url_foto": "https://example.com/Pikachu",
+            "descripcion": "A friendly and playful God pokemon" }
+            
+        GET(lista todos los perros en la base de datos): 
+            http://127.0.0.1:8000/api/perro/listar
+            
+        GET(muestra el perro del cual se coloque la id en la ruta(puede ser 1 o 2)): 
+            http://127.0.0.1:8000/api/perro/mostrar/{id}
+            
+            {   id:1 
+                id:2 }
+            
+        DELETE(elimina el perro del cual se coloque el id en la ruta(puede ser 1 o 2)): 
+            http://127.0.0.1:8000/api/perro/borrar/{id}
+            
+            {   id:1 
+                id:2}
+                
+    - interaccion
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+        POST(ingresa una interaccion a la base de datos): 
+            http://127.0.0.1:8000/api/interaccion/registrar
+                                    {
+                    "perro_interesado_id": 1,
+                    "perro_candidato_id": 2,
+                    "preferencia": "aceptado" }
+                            {
+                    "perro_interesado_id": 2,
+                    "perro_candidato_id": 1,
+                    "preferencia": "rechazado" }
+                    
+        GET(lista todas las interacciones en la base de datos): 
+            http://127.0.0.1:8000/api/interaccion/listar
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+        GET(muestra una interaccion de la cual se coloque la id en la ruta(puede ser 1 o 2): 
+            http://127.0.0.1:8000/api/interaccion/mostrar/{id}
 
-## Laravel Sponsors
+            {   id:1 
+                id:2}
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+        PUT(edita una interaccion la cual ya ingresada en la base de datos(el id puede ser 1 o 2):
+            http://127.0.0.1:8000/api/interaccion/actualizar/{id}
+                        {
+            "perro_interesado_id": 1,
+            "perro_candidato_id": 2,
+            "preferencia": "rechazado"}
 
-### Premium Partners
+                        {
+            "perro_interesado_id": 2,
+            "perro_candidato_id": 1,
+            "preferencia": "aceptado"}
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+        GET(Muestra todas las interacciones que tiene el perro_interesado usando su id(puede ser 1 o 2, en este caso): 
+            http://127.0.0.1:8000/api/interaccion/grupoID/{id}
 
-## Contributing
+        DELETE(elimina una interaccion de la base de datos, la cual se coloca la id en la ruta(puede ser 1 o 2)): 
+            http://127.0.0.1:8000/api/interaccion/borrar/{id}
+        
+    
+    
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
